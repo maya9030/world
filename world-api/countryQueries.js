@@ -6,7 +6,4 @@ module.exports = {
     FROM country
     LIMIT ${limit};
     `
-    ,getCountriesByName:(name)=>`
-    WHERE Name LIKE ${name};
-    `
-    }
+}
