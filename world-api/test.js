@@ -9,4 +9,3 @@ console.log(middleware.name);             // → 'corsMiddleware'（または 'm
 console.dir(middleware);                  // → 中身を見てみる
 */
 
-console.log(req);
