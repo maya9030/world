@@ -16,15 +16,16 @@ function App(){
     },[baseUrl]);
 
     return(
-        <div>
-            <h1>国一覧(デモ表示)</h1>
+        <div className="card-container">
+            <h1>国一覧</h1>
             <ul>
                 {countries.map((country,i) => (
                     <li key = {i}>
-                        <a href={`https://earth.google.com/web/search/${country.国名}`} target="_blank" rel="noopener noreferrer">
-                        {country.国名}
-                        </a>
-                        (人口:{country.人口.toLocaleString()})
+                        <div className="country-card" key={i}>
+                            <h3>{country.国名}
+                            <p>(人口:{country.人口.toLocaleString()})</p>
+                            </h3>
+                        </div>
                     </li>
                 ))}
             </ul>
