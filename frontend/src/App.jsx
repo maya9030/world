@@ -3,13 +3,17 @@ import './App.css'
 
 function App(){
     const[countries, setCountries] = useState([]);
+    const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
     useEffect(()=>{
-        fetch('http://localhost:3001/countries')
+        fetch(`${baseUrl}/countries`)
         .then(res => res.json())
-        .then(data => setCountries(data))
+        .then(data => {
+            console.log("取得データ", data);
+            setCountries(data);
+        })
         .catch(err => console.log("データ取得失敗:",err));
-    },[]);
+    },[baseUrl]);
 
     return(
         <div>

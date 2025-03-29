@@ -2,8 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
-
 const app = express();
+const PORT = process.env.PORT || 3001;
+
 app.use(cors());
 
 const db = mysql.createConnection({
@@ -28,6 +29,7 @@ app.get('/countries',(req,res)=>{
     const sql = queries.getCountries(limit);
     db.query(sql, (err, results)=>{
         if(err){
+            console.log("DBクエリエラー：", err);
             res.status(500).json({error: err.message });
         }else{
             res.json(results);
@@ -35,8 +37,7 @@ app.get('/countries',(req,res)=>{
     });
 });
 
-
 //サーバーを起動
-app.listen(3001, () =>{
-    console.log('サーバー起動中: http://localhost:3001');
+app.listen(PORT, () =>{
+    console.log(`サーバー起動中: http://localhost:${PORT}`);
 });
