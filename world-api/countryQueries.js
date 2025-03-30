@@ -11,12 +11,13 @@ module.exports = {
         FROM country c
         JOIN CountryCityCount ccc
         ON c.Code = ccc.Code
+        ORDER BY  ccc.都市数 DESC
         LIMIT ${limit};
     `,
     getDetail: (code) =>`
-        SELECT Name AS 都市名, Population AS 都市人口
+        SELECT Name AS 都市名, Population AS 都市人口 
         FROM city
         WHERE city.CountryCode = '${code}'
-        LIMIT 100
+        ORDER BY  都市人口 DESC;
     `
 }

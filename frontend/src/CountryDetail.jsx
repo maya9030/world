@@ -21,6 +21,8 @@ function CountryDetail(){
     return(
         <ul>
             <div className="card-container">
+                <h2>{code}</h2>
+                <Link to="/">← 国一覧に戻る</Link>
                 {cities.map((city,i) => (
                     <li key = {city.Code}>
                         <div className="city-card">
