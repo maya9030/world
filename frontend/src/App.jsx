@@ -4,9 +4,10 @@ import CountryDetail from './CountryDetail';
 
 function App(){
     return(
+        
         <Routes>
             <Route path="/" element = {<CountryList />} />
-            <Route path="/country/:code" element = {<CountryDetail />} />
+            <Route path="/:code" element = {<CountryDetail />} />
         </Routes>
         )
 }

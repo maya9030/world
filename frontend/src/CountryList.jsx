@@ -22,11 +22,13 @@ return(
         <ul>
             {countries.map((country,i) => (
                 <li key = {country.Code}>
-                    <Link to={`/country/${country.Code}`}>
+                    <Link to={`/${country.Code}`}>
                         <div className="country-card">
                             <h3>{country.国名}</h3>
                             <p>(人口:{country.人口.toLocaleString()})</p>
-                        </div>                    </Link>
+                            <p>(都市数:{country.都市数.toLocaleString()})</p>
+                        </div>
+                    </Link>
                 </li>
             ))}
         </ul>

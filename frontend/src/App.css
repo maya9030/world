@@ -24,9 +24,16 @@ li {
 
 h3 {
   font-family: "Roboto", "Open Sans", sans-serif;
+  font-size: 2.5rem;
   text-align: center;
   color: #01546b;
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+p{
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  color: #555;
 }
 
 .card-container {
@@ -38,7 +45,8 @@ h3 {
   justify-content: center;
 }
 
-.country-card {
+.country-card,
+.city-card{
   color: #0b242d;
   background: #fff8d3;
   border-radius: 12px;
@@ -58,15 +66,4 @@ h3 {
 
 .country-card:hover h3{
   color: #27b3ff;
-}
-
-.country-card h3{
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
-}
-
-.country-card p{
-  margin-bottom: 0.75rem;
-  font-size: 0.8rem;
-  color: #555;
 }
