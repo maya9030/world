@@ -27,16 +27,14 @@ function CountryDetail(){
                 <h2>{code}</h2>
                 <Link to="/">←← 大陸一覧に戻る</Link>
                 <Link to={`/continents/${id}`}>← 国一覧に戻る</Link>
-                {cities.map((city,i) => (
-                    <li key = {city.Code}>
+                {cities.map((city,　i) => (
+                    <li key = {i}>
                         <div className="city-card">
                             <h3>{city.都市名}</h3>
                             <p>(都市人口:{city.都市人口.toLocaleString()})</p>
                         </div>
                     </li>
                 ))}
-
-                <Link to="/">←← 大陸一覧に戻る</Link>
             </div>
         </ul>
     )

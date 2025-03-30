@@ -13,7 +13,7 @@ module.exports = {
         ON  c.id = cc.大陸id
         ORDER BY cc.国数 DESC;
     `,
-    getCountries: (id) =>`
+    getCountries: () =>`
         WITH CountryCityCount AS(
 	        SELECT CountryCode AS Code, COUNT(*) AS 都市数
 	        FROM city
@@ -22,12 +22,12 @@ module.exports = {
         SELECT c.Code,
         c.Name AS 国名,
         c.Population AS 人口,
-        ccc.都市数,
+        COALESCE(ccc.都市数, 0) AS 都市数,
         c.continent_id AS id
         FROM country c
-        JOIN CountryCityCount ccc
+        LEFT JOIN CountryCityCount ccc
         ON c.Code = ccc.Code
-        WHERE c.continent_id = ${id}
+        WHERE c.continent_id = ?
         ORDER BY  ccc.都市数 DESC;
     `,
     getDetail: () =>`

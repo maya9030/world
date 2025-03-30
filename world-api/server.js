@@ -41,7 +41,7 @@ app.get('/continents',(req,res)=>{
 app.get('/continents/:id',(req,res)=>{
     const id = req.params.id;
     const sql = queries.getCountries(id);
-    db.query(sql, (err, results)=>{
+    db.query(sql, [id], (err, results)=>{
         if(err){
             console.log("DBクエリエラー：", err);
             res.status(500).json({error: err.message });
