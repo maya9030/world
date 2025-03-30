@@ -37,6 +37,19 @@ app.get('/countries',(req,res)=>{
     });
 });
 
+app.get('/countries/:code',(req,res)=>{
+    const code = req.params.code;
+    const sql = queries.getDetail(code);
+    db.query(sql, (err, results)=>{
+        if(err){
+            console.log("DBクエリエラー：", err);
+            res.status(500).json({error: err.message });
+        }else{
+            res.json(results);
+        }
+    });
+
+});
 //サーバーを起動
 app.listen(PORT, () =>{
     console.log(`サーバー起動中: http://localhost:${PORT}`);
