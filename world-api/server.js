@@ -23,10 +23,24 @@ db.connect((err)　=>{
 });
 
 const queries = require('./countryQueries');
+
+//大陸一覧を取得するAPI
+app.get('/continents',(req,res)=>{
+    const sql = queries.getContinents();
+    db.query(sql, (err, results)=>{
+        if(err){
+            console.log("DBクエリエラー：", err);
+            res.status(500).json({error: err.message });
+        }else{
+            res.json(results);
+        }
+    });
+});
+
 //国一覧を取得するAPI
-app.get('/countries',(req,res)=>{
-    const limit = 100;
-    const sql = queries.getCountries(limit);
+app.get('/continents/:id',(req,res)=>{
+    const id = req.params.id;
+    const sql = queries.getCountries(id);
     db.query(sql, (err, results)=>{
         if(err){
             console.log("DBクエリエラー：", err);
@@ -37,10 +51,12 @@ app.get('/countries',(req,res)=>{
     });
 });
 
-app.get('/countries/:code',(req,res)=>{
+//国の詳細を取得するAPI
+app.get(`/continents/:id/:code`,(req,res)=>{
+    const id = req.params.id;
     const code = req.params.code;
-    const sql = queries.getDetail(code);
-    db.query(sql, (err, results)=>{
+    const sql = queries.getDetail();
+    db.query(sql, [id, code], (err, results)=>{
         if(err){
             console.log("DBクエリエラー：", err);
             res.status(500).json({error: err.message });
@@ -50,6 +66,7 @@ app.get('/countries/:code',(req,res)=>{
     });
 
 });
+
 //サーバーを起動
 app.listen(PORT, () =>{
     console.log(`サーバー起動中: http://localhost:${PORT}`);

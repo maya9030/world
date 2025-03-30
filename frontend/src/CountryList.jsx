@@ -1,28 +1,30 @@
 import './App.css'
 import React, {useEffect, useState} from "react";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function CountryList(){
     const[countries, setCountries] = useState([]);
     const baseUrl = process.env.REACT_APP_API_BASE_URL;
+    const { id } = useParams();
 
     useEffect(()=>{
-        fetch(`${baseUrl}/countries`)
+        fetch(`${baseUrl}/continents/${id}`)
         .then(res => res.json())
         .then(data => {
             console.log("取得データ", data);
             setCountries(data);
         })
         .catch(err => console.log("データ取得失敗:",err));
-    },[baseUrl]);
+    },[baseUrl, id]);
 
 return(
     <div className="card-container">
         <h1>国一覧</h1>
+        <Link to="/">← 大陸一覧に戻る</Link>
         <ul>
             {countries.map((country,i) => (
                 <li key = {country.Code}>
-                    <Link to={`/${country.Code}`}>
+                    <Link to={`/continents/${id}/${country.Code}`}>
                         <div className="country-card">
                             <h3>{country.国名}</h3>
                             <p>(人口:{country.人口.toLocaleString()})</p>

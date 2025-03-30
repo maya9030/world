@@ -6,23 +6,27 @@ function CountryDetail(){
     const[cities, setCities] = useState([]);
     const baseUrl = process.env.REACT_APP_API_BASE_URL;
     const { code } = useParams();
+    const { id } = useParams();
 
     useEffect(()=>{
-        fetch(`${baseUrl}/countries/${code}`)
+        console.log("アクセス先:", `${baseUrl}/continents/${id}/${code}`);
+
+        fetch(`${baseUrl}/continents/${id}/${code}`)
         .then(res => res.json())
         .then(data => {
             console.log("取得データ", data);
             setCities(data);
         })
         .catch(err => console.log("データ取得失敗:",err));
-    },[baseUrl, code]);
+    },[baseUrl, id, code]);
 
 
     return(
         <ul>
             <div className="card-container">
                 <h2>{code}</h2>
-                <Link to="/">← 国一覧に戻る</Link>
+                <Link to="/">←← 大陸一覧に戻る</Link>
+                <Link to={`/continents/${id}`}>← 国一覧に戻る</Link>
                 {cities.map((city,i) => (
                     <li key = {city.Code}>
                         <div className="city-card">
@@ -32,7 +36,7 @@ function CountryDetail(){
                     </li>
                 ))}
 
-                <Link to="/">← 国一覧に戻る</Link>
+                <Link to="/">←← 大陸一覧に戻る</Link>
             </div>
         </ul>
     )
