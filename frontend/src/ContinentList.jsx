@@ -2,6 +2,8 @@ import './App.css'
 import React, {useEffect, useState} from "react";
 import { Link } from 'react-router-dom';
 
+/*<img src={`${process.env.PUBLIC_URL}/world.svg`} alt = "大陸"/>*/
+
 function ContinentList(){
     const[continents, setContinents] = useState([]);
     const baseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -21,6 +23,7 @@ function ContinentList(){
 return(
     <div className="card-container">
         <h1>大陸一覧</h1>
+       
         <ul>
             {continents.map((continent, i) => (
                 <li key = {continent.大陸}>
