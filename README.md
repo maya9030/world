@@ -49,10 +49,10 @@
 
 ## ディレクトリ構成
 
-├── frontend/        # Reactアプリ（http://localhost:3002）
-├── world-api/       # Express + MySQL APIサーバー（http://localhost:3001）
-├── database/        # world.sql（MySQL用の初期データ）
-├── package.json     # 一括起動用スクリプトあり
+├── frontend/        # Reactアプリ（http://localhost:3002）  
+├── world-api/       # Express + MySQL APIサーバー（http://localhost:3001）  
+├── database/        # world.sql（MySQL用の初期データ）  
+├── package.json     # 一括起動用スクリプトあり  
 └── README.md
 
 ---
