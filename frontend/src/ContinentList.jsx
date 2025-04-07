@@ -2,8 +2,6 @@ import './App.css'
 import React, {useEffect, useState} from "react";
 import { Link } from 'react-router-dom';
 
-/*<img src={`${process.env.PUBLIC_URL}/world.svg`} alt = "大陸"/>*/
-
 function ContinentList(){
     const[continents, setContinents] = useState([]);
     const baseUrl = process.env.REACT_APP_API_BASE_URL;

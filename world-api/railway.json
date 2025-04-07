@@ -1,0 +1,9 @@
+{
+    "build": {
+        "command": "npm install",
+        "rootDirectory": "world-api"
+    },
+    "start": {
+        "command": "npm run dev"
+    }
+}
