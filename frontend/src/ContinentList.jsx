@@ -21,13 +21,12 @@ function ContinentList(){
 return(
     <div className="card-container">
         <h1>大陸一覧</h1>
-       
         <ul>
             {continents.map((continent, i) => (
-                <li key = {continent.大陸}>
-                    <Link to={`/continents/${continent.大陸id}`}>
+                <li key = {continent.Continent}>
+                    <Link to={`/continents/${continent.Continent}`}>
                         <div className="country-card">
-                            <h3>{continent.大陸}</h3>
+                            <h3>{continent.Continent}</h3>
                             <p>(国数:{continent.国数.toLocaleString()})</p>
                         </div>
                     </Link>
