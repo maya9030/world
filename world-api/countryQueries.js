@@ -3,7 +3,7 @@
 module.exports = {
     getContinents: () =>`
         SELECT Continent, COUNT(*) AS 国数
-        FROM Country
+        FROM country
         GROUP BY Continent;
     `,
     getCountries: () =>`
