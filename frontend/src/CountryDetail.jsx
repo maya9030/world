@@ -4,9 +4,9 @@ import { Link, useParams } from 'react-router-dom';
 
 function CountryDetail(){
     const[cities, setCities] = useState([]);
-    const baseUrl = process.env.REACT_APP_API_BASE_URL;
-    const { cont } = useParams();
+    const baseUrl = process.env.REACT_APP_API_BASE_URL
     const { id } = useParams();
+    const { code } = useParams();
 
     useEffect(()=>{
         console.log("アクセス先:", `${baseUrl}/continents/${id}/${code}`);
