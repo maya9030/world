@@ -8,7 +8,7 @@ function CountryList(){
     const { cont } = useParams();
 
     useEffect(()=>{
-        console.log("渡されたid", cont);
+        console.log("アクセス先", cont);
         fetch(`${baseUrl}/continents/${cont}`)
         .then(res => res.json())
         .then(data => {
