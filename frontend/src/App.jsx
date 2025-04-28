@@ -8,8 +8,8 @@ function App(){
         
         <Routes>
             <Route path="/" element = {<ContinentList />} />
-            <Route path="/continents/:cont" element = {<CountryList />} />
-            <Route path="/continents/:cont/:code" element = {<CountryDetail />} />
+            <Route path="/continents/:id" element = {<CountryList />} />
+            <Route path="/continents/:id/:code" element = {<CountryDetail />} />
         </Routes>
         )
 }

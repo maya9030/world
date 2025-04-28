@@ -5,20 +5,20 @@ import { Link, useParams } from 'react-router-dom';
 function CountryDetail(){
     const[cities, setCities] = useState([]);
     const baseUrl = process.env.REACT_APP_API_BASE_URL;
-    const { code } = useParams();
     const { cont } = useParams();
+    const { id } = useParams();
 
     useEffect(()=>{
-        console.log("アクセス先:", `${baseUrl}/continents/${cont}/${code}`);
+        console.log("アクセス先:", `${baseUrl}/continents/${id}/${code}`);
 
-        fetch(`${baseUrl}/continents/${cont}/${code}`)
+        fetch(`${baseUrl}/continents/${id}/${code}`)
         .then(res => res.json())
         .then(data => {
             console.log("取得データ", data);
             setCities(data);
         })
         .catch(err => console.log("データ取得失敗:",err));
-    },[baseUrl, cont, code]);
+    },[baseUrl, id, code]);
 
 
     return(
